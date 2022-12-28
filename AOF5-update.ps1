@@ -12,7 +12,16 @@ $Uris = @(
     'https://mediafilez.forgecdn.net/files/4023/643/iris-mc1.18.2-1.4.0.jar',
     'https://mediafilez.forgecdn.net/files/4023/623/kibe-1.9.10-BETA%2B1.18.jar',
     'https://mediafilez.forgecdn.net/files/4032/509/probablychests-0.5.5-1.18.2.jar',
-    'https://mediafilez.forgecdn.net/files/3959/24/spectrum-1.5.7-1.18.2-magic.jar'
+    'https://mediafilez.forgecdn.net/files/3959/24/spectrum-1.5.7-1.18.2-magic.jar',
+    
+    'https://mediafilez.forgecdn.net/files/4264/604/peripheralworks-0.2.2.jar',
+    'https://mediafilez.forgecdn.net/files/4264/596/Peripheralium-0.4.17-1.18.2.jar',
+    'https://mediafilez.forgecdn.net/files/4072/922/cccbridge-1.3.1-fabric.jar',
+    'https://mediafilez.forgecdn.net/files/4133/404/Staff+of+Travelling-fabric-1.18.2-1.2.12.jar',
+    'https://mediafilez.forgecdn.net/files/3962/871/Logicates-1.0.2%2B1.18.2.jar',
+    'https://mediafilez.forgecdn.net/files/4118/804/productivevillagers_fabric-1.0.4.jar',
+    'https://mediafilez.forgecdn.net/files/3962/679/RoughlyEnoughTrades-1.1.1.jar',
+    'https://mediafilez.forgecdn.net/files/4013/361/pyrotastic-1.18.2%2B2.0.3.jar'
 )
 
 $RemoveMods = @(
@@ -29,8 +38,13 @@ $RemoveMods = @(
     'magitekmechs-fabric-MC1.18-1.0.12.jar',
     'probablychests-0.5.3-1.18.2.jar',
     'spectrum-1.5.2-1.18.2-magic.jar',
-    'spectrum-1.5.0-1.18.2-magic.jar'
+    'spectrum-1.5.0-1.18.2-magic.jar',
+    
+    'Peripheralium-0.1.1.jar',
+    'peripheralworks-0.1.2.jar'
 )
+
+Set-Location -LiteralPath "$PSScriptRoot"
 
 If (-Not (Test-Path "manifest.json" -PathType Leaf)) {
     Write-Host 'manifest.json not found. Is this the correct folder?'
@@ -63,7 +77,7 @@ $Decision = $Host.UI.PromptForChoice('Cleanup', 'Remove old mods?', @('&Yes', '&
 If ($Decision -Eq 0) {
     ForEach ($File in $RemoveMods) {
         try {
-            Remove-Item "mods\$File"
+            Remove-Item -LiteralPath "mods\$File"
             Write-Host "Deleted $File"
         }
         catch [System.Management.Automation.ItemNotFoundException] {
@@ -77,3 +91,6 @@ ElseIf ($Decision -Eq 1) {
 Else {
     Exit
 }
+
+Write-Host ''
+Write-Host 'Update script completed'
