@@ -21,7 +21,9 @@ $Uris = @(
     'https://mediafilez.forgecdn.net/files/3962/871/Logicates-1.0.2%2B1.18.2.jar',
     'https://mediafilez.forgecdn.net/files/4118/804/productivevillagers_fabric-1.0.4.jar',
     'https://mediafilez.forgecdn.net/files/3962/679/RoughlyEnoughTrades-1.1.1.jar',
-    'https://mediafilez.forgecdn.net/files/4013/361/pyrotastic-1.18.2%2B2.0.3.jar'
+    'https://mediafilez.forgecdn.net/files/4013/361/pyrotastic-1.18.2%2B2.0.3.jar',
+    
+    'https://mediafilez.forgecdn.net/files/3912/766/tempad-fabric-1.18.2-1.4.1.jar'
 )
 
 $RemoveMods = @(
